@@ -1,19 +1,37 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
-// @import "./mixins";
-$color-primary-red: hsl(1, 90%, 64%);
-$color-primary-blue: hsl(219, 85%, 26%);
-$color-secondary-white: hsl(0, 0%, 100%);
-$color-secondary-very-light-grayish-blue: hsl(210, 60%, 98%);
-$color-secondary-light-grayish-blue-1: hsl(211, 68%, 94%);
-$color-secondary-light-grayish-blue-2: hsl(205, 33%, 90%);
-$color-secondary-grayish-blue: hsl(219, 14%, 63%);
-$color-secondary-dark-grayish-blue: hsl(219, 12%, 42%);
-$color-secondary-very-dark-blue: hsl(224, 21%, 14%);
+@use "./mixins" as mixin;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 
-$font-size-paragraph: 1.6rem;
-$font-weight-medium: 500;
-$font-weight-extra-bold: 800;
-$font-family-primary: "Plus Jakarta Sans", sans-serif;
+// :root {
+//
+// }
+$color-primary-bright-blue: hsl(220, 98%, 61%);
+$color-primary-accent-1: hsl(192, 100%, 67%);
+$color-primary-accent-2: hsl(280, 87%, 65%);
+$color-primary-checkbox-background: linear-gradient(
+  to bottom,
+  $color-primary-accent-1,
+  $color-primary-accent-2
+);
+$color-attribution: hsl(228, 45%, 44%);
+
+$color-light-gray-1: hsl(0, 0%, 98%);
+$color-light-gray-2: hsl(236, 33%, 92%);
+$color-light-gray-3: hsl(233, 11%, 84%);
+$color-light-gray-4: hsl(236, 9%, 61%);
+$color-light-gray-5: hsl(235, 19%, 35%);
+
+$color-dark-blue-1: hsl(236, 33%, 92%);
+$color-dark-blue-2: hsl(234, 39%, 85%);
+$color-dark-blue-3: hsl(234, 11%, 52%);
+$color-dark-blue-4: hsl(233, 14%, 35%);
+$color-dark-blue-5: hsl(237, 14%, 26%);
+$color-dark-blue-6: hsl(235, 24%, 19%);
+$color-dark-blue-7: hsl(235, 21%, 11%);
+
+$font-size-paragraph: 1.8rem;
+$font-weight-regular: 400;
+$font-weight-bold: 700;
+$font-family-primary: "Josefin Sans", sans-serif;
 
 * {
   margin: 0;
@@ -25,22 +43,11 @@ $font-family-primary: "Plus Jakarta Sans", sans-serif;
 }
 html {
   font-size: 62.5%;
-  @include responsive(tab-port) {
+  @include mixin.responsive(tab-port) {
     font-size: 55%;
   }
 }
 body {
-  background-color: $color-secondary-very-light-grayish-blue;
+  background-color: $color-dark-blue-7;
   font-family: $font-family-primary;
-}
-.button {
-  &--mark-all-read {
-    border: none;
-    background: none;
-    outline: none;
-    font-weight: $font-weight-medium;
-    color: $color-secondary-dark-grayish-blue;
-    font-size: $font-size-paragraph;
-    cursor: pointer;
-  }
 }

@@ -1,3 +1,14 @@
+// @use "sass:list";
+@use "sass:list";
+
+@mixin change-theme($text, $bg) {
+  @if list.length($bg) == 1 {
+    background-color: $bg;
+  } @else {
+    background-image: linear-gradient(to top left, $bg);
+  }
+  color: $text;
+}
 @mixin responsive($breakpoint) {
   @if $breakpoint == phone {
     @media (max-width: 32em) {
