@@ -1,34 +1,61 @@
 {
   "name": "fem-todo-app",
   "version": "1.0.0",
+  "private": true,
   "description": "![Design preview for the Todo App coding challenge](./design/desktop-preview.jpg)",
-  "main": "index.js",
-  "scripts": {
-    "watch:sass": "sass sass/main.scss dist/main.css -w",
-    "devserver": "live-server",
-    "start": "npm-run-all --parallel devserver watch:sass",
-    "compile:sass": "sass sass/main.scss dist/main.compiled.css",
-    "concat:css": "concat -o dist/main.concat.css dist/main.compiled.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' dist/main.concat.css -o dist/main.prefix.css",
-    "compress:css": "sass dist/main.prefix.css dist/main.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  "author": {
+    "name": "Osman Nuri Erdogan"
   },
-  "keywords": [],
-  "author": "Osman Nuri Erdogan",
-  "license": "ISC",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "pug": "^3.0.2",
+    "pug-plain-loader": "^1.1.0",
+    "sass": "^1.55.0",
+    "sass-loader": "^13.0.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "@babel/eslint-parser"
+    },
+    "rules": {}
+  },
   "browserslist": [
-    "last 10 versions"
+    "last 10 versions",
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
   ],
+  "_id": "fem-todo-app@1.0.0",
   "bugs": {
     "url": "https://github.com/osmannurierdogan/fem-todo-app/issues"
   },
   "homepage": "https://github.com/osmannurierdogan/fem-todo-app#readme",
-  "dependencies": {
-    "autoprefixer": "^9.8.8",
-    "concat": "^1.0.3",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.7",
-    "postcss-cli": "^9.1.0",
-    "sass": "^1.54.9"
-  }
+  "keywords": [],
+  "license": "ISC",
+  "readme": "ERROR: No README data found!"
 }
