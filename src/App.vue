@@ -1,31 +1,57 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
-<template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+<template lang="pug">
+main.container
+  div.todo
+    TodoHeader
+    AddTodo
+    TodoList
+    TodoResult
+    span.text-center Drag and drop to reorder list
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<script setup>
+import { ref, provide } from "vue";
+import TodoHeader from "@/components/TodoHeader.vue";
+import AddTodo from "@/components/AddTodo.vue";
+import TodoResult from "@/components/TodoResult.vue";
+import TodoList from "@/components/TodoList.vue";
+const todoList = ref([
+  {
+    id: 1,
+    title: "Todo Text #1",
+    status: "completed",
+  },
+]);
+const addTodoFunction = (todoText) => {
+  const newTodo = {
+    title: todoText,
+    id: new Date().getTime(),
+    status: "uncompleted",
+  };
+  todoList.value.push(newTodo);
+  console.log(todoList.value);
+};
+const removeTodoFunction = (todo) => {
+  todoList.value = todoList.value.filter((t) => t.id !== todo.id);
+  console.log(todoList.value);
+};
+provide("AddTodoFunction", addTodoFunction);
+provide("RemoveTodoFunction", removeTodoFunction);
+provide("todoList", todoList);
+</script>
+
+<style lang="scss">
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 7% 20%;
+  color: variables.$color-light-gray-1;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.todo {
+  display: flex;
+  /* align-items: center;*/
+  justify-content: center;
+  flex-direction: column;
+  gap: 2.4rem;
 }
 </style>
