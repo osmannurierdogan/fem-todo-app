@@ -1,14 +1,14 @@
 <template lang="pug">
 li.todo__item
   div.todo__item__content(:class="addCompleteTextDecoration")
-    button.button.button--check(@click="toggleComplete", :class="addCompleteBg")
-      img.todo__icon(alt="Complete Icon" src="@/assets/images/icon-check.svg", :hidden="props.todoItem.status !== 'completed'")
+    CompleteTodoComponent(:todoItem="props.todoItem")
     h3.todo__item-title {{ props.todoItem.title }}
   button.button.button--remove(@click="removeTodo(props.todoItem)")
     img.todo__icon(alt="Close Icon", src="@/assets/images/icon-cross.svg")
 </template>
 <script setup>
-import { inject, computed, ref } from "vue";
+import CompleteTodoComponent from "@/components/CompleteTodoComponent.vue";
+import { inject, computed, ref, provide } from "vue";
 const props = defineProps({
   todoItem: {
     type: Object,
@@ -34,6 +34,8 @@ const toggleComplete = () => {
     props.todoItem.status = "completed";
   }
 };
+provide("toggleComplete", toggleComplete);
+provide("addCompleteBg", addCompleteBg);
 </script>
 <style lang="scss">
 .todo {
@@ -42,7 +44,7 @@ const toggleComplete = () => {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.6rem;
-    border-bottom: 1px solid variables.$color-light-gray-2;
+    border-bottom: 1px solid variables.$color-light-gray-5;
     line-height: normal;
     &-title {
       font-size: variables.$font-size-paragraph;
@@ -50,7 +52,8 @@ const toggleComplete = () => {
       align-items: center;
       justify-content: center;
       padding: 0;
-      margin: 0;
+      margin-top: 0.5rem;
+      color: variables.$color-light-gray-3;
     }
     &__content {
       justify-content: space-between;

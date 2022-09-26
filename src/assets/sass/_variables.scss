@@ -1,5 +1,5 @@
 @use "./mixins" as mixin;
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&family=Montserrat:wght@400;700&display=swap");
 
 // :root {
 //
@@ -32,6 +32,7 @@ $font-size-paragraph: 1.8rem;
 $font-weight-regular: 400;
 $font-weight-bold: 700;
 $font-family-primary: "Josefin Sans", sans-serif;
+$font-family-secondary: "Montserrat", sans-serif;
 
 * {
   margin: 0;
@@ -47,11 +48,12 @@ html {
   // }
 }
 body {
-  // background-color: $color-dark-blue-7;
-  background-color: red;
+  background-color: $color-dark-blue-7;
   font-family: $font-family-primary;
+  // font-family: $font-family-secondary;
   font-size: $font-size-paragraph;
   vertical-align: middle;
+  line-height: 1;
 }
 .button {
   border: none;
@@ -63,8 +65,9 @@ body {
   justify-content: center;
   font-size: inherit;
   color: inherit;
+  font-family: inherit;
   &--check {
-    border: 1px solid $color-light-gray-2;
+    border: 1px solid $color-light-gray-5;
     border-radius: 100px;
     padding: 0.5rem;
     width: 2.4rem;
@@ -73,8 +76,6 @@ body {
       height: 1rem;
       width: 1rem;
     }
-  }
-  & img {
   }
 }
 .text-center {
@@ -86,6 +87,9 @@ body {
 }
 .addCompleteTextDecoration {
   text-decoration: line-through;
-  text-decoration-thickness: 0.2rem;
-  text-decoration-color: $color-dark-blue-3;
+  text-decoration-thickness: 0.1rem;
+  text-decoration-color: $color-dark-blue-4;
+  & h3 {
+    color: $color-light-gray-5;
+  }
 }

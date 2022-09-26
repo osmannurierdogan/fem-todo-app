@@ -10,8 +10,8 @@ const todoList = inject("todoList");
 <style lang="scss">
 .todo {
   &__list {
-    background-color: variables.$color-dark-blue-6;
     background-color: pink;
+    background-color: variables.$color-dark-blue-6;
     border-radius: 1rem;
     overflow: hidden;
   }

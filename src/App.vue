@@ -9,7 +9,7 @@ main.container
 </template>
 
 <script setup>
-import { ref, provide } from "vue";
+import { ref, provide, computed } from "vue";
 import TodoHeader from "@/components/TodoHeader.vue";
 import AddTodo from "@/components/AddTodo.vue";
 import TodoResult from "@/components/TodoResult.vue";
@@ -34,9 +34,13 @@ const removeTodoFunction = (todo) => {
   todoList.value = todoList.value.filter((t) => t.id !== todo.id);
   console.log(todoList.value);
 };
+const unCompletedCount = computed(() => {
+  return todoList.value.filter((t) => t.status == "uncompleted").length;
+});
 provide("AddTodoFunction", addTodoFunction);
 provide("RemoveTodoFunction", removeTodoFunction);
 provide("todoList", todoList);
+provide("unCompletedCount", unCompletedCount);
 </script>
 
 <style lang="scss">
