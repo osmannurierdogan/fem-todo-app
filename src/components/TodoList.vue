@@ -1,6 +1,7 @@
 <template lang="pug">
-ul.todo__list
+ul.todo__list(v-if="todoList.length > 0")
   TodoItem(v-for="todoItem in todoList", :key ="todoItem.id", :todoItem="todoItem")
+span.alert(v-else) There is no item found.
 </template>
 <script setup>
 import TodoItem from "@/components/TodoItem.vue";
@@ -15,5 +16,17 @@ const todoList = inject("todoList");
     border-radius: 1rem;
     overflow: hidden;
   }
+}
+.alert {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  font-weight: variables.$font-weight-bold;
+  text-transform: uppercase;
+  background-color: orangered;
+  color: variables.$color-light-gray-1;
+  letter-spacing: 2px;
+  font-family: variables.$font-family-secondary;
 }
 </style>

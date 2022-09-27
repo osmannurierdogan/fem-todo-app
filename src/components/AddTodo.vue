@@ -1,8 +1,6 @@
 <template lang="pug">
 div.todo__text
-  // CompleteTodoComponent(:todoItem="{}")
   input.todo__input(v-model="todoText", @keydown.enter="AddTodo(todoText)", placeholder="Create a new todo...")
-// input.todo__text(v-model="todoText", @keydown.enter="AddTodo(todoText)")
 </template>
 <script setup>
 import CompleteTodoComponent from "@/components/CompleteTodoComponent.vue";

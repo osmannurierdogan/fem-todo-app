@@ -3,7 +3,7 @@ div.todo__result
   span.todo__result--remaining {{ unCompletedCount }} item left.
   ul.todo__result__tags
     TodoResultItem(v-for="tag in resultTags", :key="tag.id", :title="tag.title")
-  button.button.todo__result__clear Clear Completed
+  button.button.todo__result__clear(@click="clear") Clear Completed
 </template>
 <script setup>
 import { inject } from "vue";
@@ -14,6 +14,10 @@ const resultTags = [
   { id: 3, title: "Completed" },
 ];
 const unCompletedCount = inject("unCompletedCount");
+const ClearCompleted = inject("ClearCompleted");
+const clear = () => {
+  ClearCompleted();
+};
 </script>
 <style lang="scss">
 .todo {
