@@ -13,7 +13,7 @@ import TodoList from "@/components/TodoList.vue";
 import TodoResult from "@/components/TodoResult.vue";
 import TodoHeader from "@/components/TodoHeader.vue";
 import AddTodo from "@/components/AddTodo.vue";
-import { ref, provide, computed } from "vue";
+import { ref, provide, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 
@@ -38,13 +38,13 @@ const filterTodoListByStatus = (status) => {
   todoList.value = store.getters._getTodoList;
   if (status === "Active") {
     let temp = store.getters._getTodoList.filter(
-      (t) => t.status === "uncompleted"
+      (t) => t.status === "uncompleted",
     );
     todoList.value = temp;
     return temp;
   } else if (status === "Completed") {
     let temp = store.getters._getTodoList.filter(
-      (t) => t.status === "completed"
+      (t) => t.status === "completed",
     );
     todoList.value = temp;
     return temp;
@@ -65,6 +65,9 @@ provide("FilterTodoListByStatus", filterTodoListByStatus);
 provide("todoList", todoList);
 provide("unCompletedCount", unCompletedCount);
 provide("ClearCompleted", clearCompleted);
+onMounted(() => {
+  console.log(todoList.value);
+});
 </script>
 
 <style lang="scss">
@@ -83,3 +86,4 @@ provide("ClearCompleted", clearCompleted);
   gap: 2.4rem;
 }
 </style>
+
