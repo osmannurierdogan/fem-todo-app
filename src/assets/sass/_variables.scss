@@ -4,7 +4,38 @@
 // :root {
 //
 // }
-$color-primary-bright-blue: hsl(220, 98%, 61%);
+:root {
+  --color-primary-bright-blue: hsl(220, 98%, 61%);
+  --color-primary-accent-1: hsl(192, 100%, 67%);
+  --color-primary-accent-2: hsl(280, 87%, 65%);
+  --color-primary-checkbox-background: linear-gradient(
+    to bottom,
+    var(--color-primary-accent-1),
+    var(--color-primary-accent-2)
+  );
+  --color-attribution: hsl(228, 45%, 44%);
+
+  --color-light-gray-1: hsl(0, 0%, 98%);
+  --color-light-gray-2: hsl(236, 33%, 92%);
+  --color-light-gray-3: hsl(233, 11%, 84%);
+  --color-light-gray-4: hsl(236, 9%, 61%);
+  --color-light-gray-5: hsl(235, 19%, 35%);
+
+  --color-dark-blue-1: hsl(236, 33%, 92%);
+  --color-dark-blue-2: hsl(234, 39%, 85%);
+  --color-dark-blue-3: hsl(234, 11%, 52%);
+  --color-dark-blue-4: hsl(233, 14%, 35%);
+  --color-dark-blue-5: hsl(237, 14%, 26%);
+  --color-dark-blue-6: hsl(235, 24%, 19%);
+  --color-dark-blue-7: hsl(235, 21%, 11%);
+
+  --font-size-paragraph: 1.8rem;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-family-primary: "Josefin Sans", sans-serif;
+  --font-family-secondary: "Montserrat", sans-serif;
+}
+/*  $color-primary-bright-blue: hsl(220, 98%, 61%);
 $color-primary-accent-1: hsl(192, 100%, 67%);
 $color-primary-accent-2: hsl(280, 87%, 65%);
 $color-primary-checkbox-background: linear-gradient(
@@ -34,6 +65,7 @@ $font-weight-bold: 700;
 $font-family-primary: "Josefin Sans", sans-serif;
 $font-family-secondary: "Montserrat", sans-serif;
 
+*/
 * {
   margin: 0;
   padding: 0;
@@ -48,10 +80,10 @@ html {
   // }
 }
 body {
-  background-color: $color-dark-blue-7;
-  font-family: $font-family-primary;
-  // font-family: $font-family-secondary;
-  font-size: $font-size-paragraph;
+  background-color: var(--color-dark-blue-7);
+  font-family: var(--font-family-primary);
+  // font-family: var(--font-family-secondary);
+  font-size: var(--font-size-paragraph);
   vertical-align: middle;
   line-height: 1;
 }
@@ -67,7 +99,7 @@ body {
   color: inherit;
   font-family: inherit;
   &--check {
-    border: 1px solid $color-light-gray-5;
+    border: 1px solid var(--color-light-gray-5);
     border-radius: 100px;
     padding: 0.5rem;
     width: 2.4rem;
@@ -82,14 +114,15 @@ body {
   text-align: center;
 }
 .addCompleteBg {
-  background-image: $color-primary-checkbox-background;
+  background-image: var(--color-primary-checkbox-background);
   border: none;
 }
 .addCompleteTextDecoration {
   text-decoration: line-through;
   text-decoration-thickness: 0.1rem;
-  text-decoration-color: $color-dark-blue-4;
+  text-decoration-color: var(--color-dark-blue-4);
   & h3 {
-    color: $color-light-gray-5;
+    color: var(--color-light-gray-5);
   }
 }
+

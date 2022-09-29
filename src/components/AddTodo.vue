@@ -16,20 +16,25 @@ const AddTodo = (todo) => {
 <style lang="scss">
 .todo {
   &__text {
-    background-color: variables.$color-dark-blue-6;
+    //background-color: variables.$color-dark-blue-6;
+    background-color: var(--color-dark-blue-6);
     display: flex;
     border-radius: 1rem;
     overflow: hidden;
   }
   &__input {
-    background-color: variables.$color-dark-blue-6;
+    //background-color: variables.$color-dark-blue-6;
+    background-color: var(--color-dark-blue-6);
     outline: none;
     border: none;
     font-family: inherit;
     padding: 1rem;
-    font-size: variables.$font-size-paragraph;
-    color: variables.$color-dark-blue-2;
+    //font-size: variables.$font-size-paragraph;
+    font-size: var(--font-size-paragraph);
+    //color: variables.$color-dark-blue-2;
+    color: var(--color-dark-blue-2);
     width: 100%;
   }
 }
 </style>
+

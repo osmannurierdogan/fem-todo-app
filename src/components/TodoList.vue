@@ -11,8 +11,8 @@ const todoList = inject("todoList");
 <style lang="scss">
 .todo {
   &__list {
-    background-color: pink;
-    background-color: variables.$color-dark-blue-6;
+    //background-color: variables.$color-dark-blue-6;
+    background-color: var(--color-dark-blue-6);
     border-radius: 1rem;
     overflow: hidden;
   }
@@ -22,11 +22,15 @@ const todoList = inject("todoList");
   padding: 2rem;
   text-align: center;
   border-radius: 1rem;
-  font-weight: variables.$font-weight-bold;
+  //font-weight: variables.$font-weight-bold;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
-  background-color: orangered;
-  color: variables.$color-light-gray-1;
+  background-color: var(--color-primary-accent-2);
+  //color: variables.$color-light-gray-1;
+  color: var(--color-light-gray-1);
   letter-spacing: 2px;
-  font-family: variables.$font-family-secondary;
+  //font-family: variables.$font-family-secondary;
+  font-family: var(--font-family-secondary);
 }
 </style>
+

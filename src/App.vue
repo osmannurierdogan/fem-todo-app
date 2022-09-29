@@ -76,7 +76,8 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   margin: 7% 20%;
-  color: variables.$color-light-gray-1;
+  //color: variables.$color-light-gray-1;
+  color: var(--color-light-gray-1);
 }
 .todo {
   display: flex;
